@@ -30,13 +30,21 @@ app.get('/', (req, res) => {
 
 var todoApi = new ToDoApi();
 var todoEndpoint = todoApi.getEndpoint();
+
+// Creating a ToDo
 app.post(todoEndpoint, (req, res) => {
   todoApi.create(req.body);
   res.status(201).json(req.body);
 });
 
+// Fetching All Todos
 app.get(todoEndpoint + '/list', (req, res) => {
   todoApi.getAll().exec((err, todos) => {
     res.status(200).json(todos);
   });
+});
+
+// Fetch single Todo
+app.get(todoEndpoint + '/:id', (req, res) => {
+  res.status(200).json({'hello': 'World'});
 });
