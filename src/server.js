@@ -14,11 +14,11 @@ mongoose.connect('mongodb://localhost/myApp');
 
 var db = mongoose.connection;
 
-db.on('error', function() {
+db.on('error', function () {
   console.log('error in connection');
 });
 
-db.once('open', function() {
+db.once('open', function () {
   console.log('we are connected');
 });
 
@@ -46,5 +46,5 @@ app.get(todoEndpoint + '/list', (req, res) => {
 
 // Fetch single Todo
 app.get(todoEndpoint + '/:id', (req, res) => {
-  res.status(200).json({'hello': 'World'});
+  res.status(200).json({ 'hello': 'World' });
 });
